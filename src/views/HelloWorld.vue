@@ -4,7 +4,6 @@ import { UseWindowSize } from "@vueuse/components";
 import { useMouse, useWindowSize } from "@vueuse/core";
 import dayjs from "dayjs";
 import moment from "moment";
-import { reactive, ref } from "vue";
 
 // "x" and "y" are refs
 const { x, y } = useMouse();
@@ -23,14 +22,22 @@ const { width, height } = useWindowSize();
 
 // defineProps<{ msg: string }>();
 
-const userStore = useCounterStore();
+const store = useCounterStore();
+
+const { counter, doubleCountPlusOne, doubleCountPlusTwo } = storeToRefs(store);
+console.log("🚀 ~ doubleCountPlusOne", doubleCountPlusOne);
+console.log("🚀 ~ doubleCountPlusTwo", doubleCountPlusTwo);
+console.log("🚀 ~ store", store);
 
 const count = ref(0);
 dayjs().format();
 console.log("🚀 ~ dayjs().format()", dayjs().format());
 console.log("import.meta.url", import.meta.url);
 function addCount() {
-  userStore.increment();
+  store.increment();
+}
+function clern() {
+  store.clern();
 }
 const text = ref("123");
 console.log("🚀 ~ text", text);
@@ -70,7 +77,8 @@ console.log("🚀 ~ ", moment().format());
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 
   <el-button @click="addCount">counter</el-button>
-  <p class="bg-gray-300">{{ userStore.counter }}</p>
+  <el-button @click="clern">counter</el-button>
+  <p class="bg-gray-300">{{ counter }}</p>
   <div class="h-[40px] w-[40px]">div</div>
   <UseWindowSize v-slot="{ width, height }">
     Width: {{ width }} Height: {{ height }}
@@ -78,7 +86,7 @@ console.log("🚀 ~ ", moment().format());
 
   <div>
     <p>{{ text }}</p>
-    <input type="text" :value="text" @input="value = 11" />
+    <!-- <input type="text" :value="text" @input="value = 11" /> -->
     <input type="text" :value="text" />
 
     <el-input type="text" v-model="text" />
