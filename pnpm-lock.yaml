@@ -33,6 +33,7 @@ specifiers:
   vue: ^3.2.37
   vue-router: ^4.1.5
   vue-tsc: ^0.40.4
+  zipson: ^0.2.12
 
 dependencies:
   '@vueuse/components': 9.3.0_vue@3.2.40
@@ -49,6 +50,7 @@ dependencies:
   uuid: 9.0.0
   vue: 3.2.40
   vue-router: 4.1.5_vue@3.2.40
+  zipson: 0.2.12
 
 devDependencies:
   '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
@@ -3403,6 +3405,10 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zipson/0.2.12:
+    resolution: {integrity: sha512-+u+fyZQXJUJDTf4NGCChW+LoWGqCrhwHAfvtCtcmE0e40KmQt4YSP4l3TOay1WjRNv+VfODgBD/vNwaSSGnDwA==}
+    dev: false
 
   /zrender/5.4.0:
     resolution: {integrity: sha512-rOS09Z2HSVGFs2dn/TuYk5BlCaZcVe8UDLLjj1ySYF828LATKKdxuakSZMvrDz54yiKPDYVfjdKqcX8Jky3BIA==}
