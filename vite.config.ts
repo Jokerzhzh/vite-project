@@ -6,6 +6,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 import { fileURLToPath, URL } from "url";
 import { defineConfig } from "vite";
+import Inspect from "vite-plugin-inspect";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -100,6 +101,7 @@ export default defineConfig({
     Icons({
       autoInstall: true,
     }),
+    Inspect(),
   ],
   resolve: {
     alias: {
