@@ -25,6 +25,7 @@ const { width, height } = useWindowSize();
 const store = useCounterStore();
 
 const { counter, doubleCountPlusOne, doubleCountPlusTwo } = storeToRefs(store);
+console.log("🚀 ~ counter", counter);
 console.log("🚀 ~ doubleCountPlusOne", doubleCountPlusOne);
 console.log("🚀 ~ doubleCountPlusTwo", doubleCountPlusTwo);
 console.log("🚀 ~ store", store);
@@ -49,6 +50,36 @@ function change(e: any) {
 }
 
 console.log("🚀 ~ ", moment().format());
+
+let obj = reactive({ a: 1 });
+console.log("🚀 ~ obj", obj);
+
+function show() {
+  console.log("🚀 ~ obj", obj);
+  console.log("🚀 ~ obj", toRaw(obj));
+  console.log("🚀 ~ isReactive(obj)", isReactive(obj));
+}
+function changeReactive() {
+  obj = { a: 1 };
+  // obj.a = 2;
+}
+
+const date = ref();
+
+setInterval(() => {
+  date.value = new Date();
+}, 1000);
+console.log("🚀 ~ date", date.value);
+
+console.log("dayjs====", dayjs(date.value));
+console.log("moment====", moment(date.value));
+
+watch(
+  () => counter.value,
+  () => {
+    console.log("counter is Changed", counter);
+  }
+);
 </script>
 
 <template>
@@ -91,6 +122,11 @@ console.log("🚀 ~ ", moment().format());
 
     <el-input type="text" v-model="text" />
   </div>
+  <div>
+    <el-button @click="show">shallowReactive</el-button>
+    <el-button @click="changeReactive">reactive</el-button>
+  </div>
+  <div>{{ date }}</div>
 </template>
 
 <style scoped>

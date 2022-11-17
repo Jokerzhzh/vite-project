@@ -69,3 +69,18 @@ export const useCounterStore = defineStore("counter", {
 });
 
 // export default useCounterStore;
+
+export const menuState = defineStore("menuState", {
+  state: () => ({
+    isCollapse: true,
+  }),
+  getters: {
+    getState: (isCollapse) => state.isCollapse,
+  },
+  actions: {
+    changeState(state: boolean) {
+      this.isCollapse = state;
+    },
+  },
+  persist: true,
+});
