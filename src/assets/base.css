@@ -31,3 +31,27 @@ body {
     background-color: #f9f9f9;
   }
 } */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #dedfe1;
+  border-radius: 10px;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  z-index: 1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(200, 201, 204);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
