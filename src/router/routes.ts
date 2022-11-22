@@ -31,6 +31,11 @@ const routes: RouteRecordRaw[] = [
         name: "DragAndDrop",
         component: () => import("@/views/DragAndDrop.vue"),
       },
+      {
+        path: "/SwitchPicture",
+        name: "SwitchPicture",
+        component: () => import("@/views/SwitchPicture.vue"),
+      },
     ],
   },
 ];
