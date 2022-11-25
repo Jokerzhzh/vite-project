@@ -36,6 +36,11 @@ const routes: RouteRecordRaw[] = [
         name: "SwitchPicture",
         component: () => import("@/views/SwitchPicture.vue"),
       },
+      {
+        path: "/BaiduMap",
+        name: "BaiduMap",
+        component: () => import("@/views/BaiduMap.vue"),
+      },
     ],
   },
 ];
