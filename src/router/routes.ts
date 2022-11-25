@@ -41,6 +41,11 @@ const routes: RouteRecordRaw[] = [
         name: "BaiduMap",
         component: () => import("@/views/BaiduMap.vue"),
       },
+      {
+        path: "/PointerEvent",
+        name: "PointerEvent",
+        component: () => import("@/views/PointerEvent.vue"),
+      },
     ],
   },
 ];
