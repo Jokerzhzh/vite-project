@@ -46,6 +46,16 @@ const routes: RouteRecordRaw[] = [
         name: "PointerEvent",
         component: () => import("@/views/PointerEvent.vue"),
       },
+      {
+        path: "/CardFlip",
+        name: "CardFlip",
+        component: () => import("@/views/CardFlip.vue"),
+      },
+      {
+        path: "/Testing",
+        name: "Testing",
+        component: () => import("@/views/Testing.vue"),
+      },
     ],
   },
 ];
