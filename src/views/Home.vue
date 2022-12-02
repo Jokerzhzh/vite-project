@@ -3,6 +3,7 @@
 <template>
   <main class="main-content">
     <LeftMenu />
+    <!-- <MyMenu /> -->
     <div class="main-content__right">
       <TopBar class="topbar" />
       <div class="content">
