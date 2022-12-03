@@ -16,6 +16,8 @@ for (let i = 0; i < 10; i++) {
   <div>
     <h1>for 循环每秒输出一个数字</h1>
     {{ arr }}
+
+    <NavigationBar />
   </div>
 </template>
 

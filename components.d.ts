@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     Input: typeof import('./src/components/Input/Input.vue')['default']
     LeftMenu: typeof import('./src/components/LeftMenu/LeftMenu.vue')['default']
     MyMenu: typeof import('./src/components/LeftMenu/MyMenu.vue')['default']
+    NavigationBar: typeof import('./src/components/TopBar/NavigationBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TopBar: typeof import('./src/components/TopBar/TopBar.vue')['default']
