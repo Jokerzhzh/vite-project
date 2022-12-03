@@ -80,6 +80,12 @@ watch(
     console.log("counter is Changed", counter);
   }
 );
+
+const asd = () => {
+  console.log("a");
+};
+
+console.log();
 </script>
 
 <template>
@@ -114,7 +120,10 @@ watch(
   <UseWindowSize v-slot="{ width, height }">
     Width: {{ width }} Height: {{ height }}
   </UseWindowSize>
-
+  <div></div>
+  <p></p>
+  <UseWindowSize></UseWindowSize>
+  <span></span>
   <div>
     <p>{{ text }}</p>
     <!-- <input type="text" :value="text" @input="value = 11" /> -->
@@ -127,6 +136,12 @@ watch(
     <el-button @click="changeReactive">reactive</el-button>
   </div>
   <div>{{ date }}</div>
+
+  <img src="../assets/vue.svg" alt="" />
+
+  <!-- <div class="bg-black"> -->
+  <Input />
+  <!-- </div> -->
 </template>
 
 <style scoped>
