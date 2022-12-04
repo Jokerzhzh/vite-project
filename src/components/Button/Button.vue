@@ -1,10 +1,8 @@
 <script setup lang="ts" name="Button">
-import {} from "vue";
-
 // defineProps ts default
 interface Props {
-  itSize: string;
-  itTitle: string;
+  itSize?: string;
+  itTitle?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   itSize: "10px",

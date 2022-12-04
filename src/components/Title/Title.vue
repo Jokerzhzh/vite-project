@@ -1,7 +1,15 @@
 <script setup lang="ts" name="Title">
-const props = defineProps<{
-  itTitle: { type: String; default: "title" };
-}>();
+// defineProps ts default
+interface Props {
+  itTitle?: string;
+}
+const props = withDefaults(defineProps<Props>(), {
+  itTitle: "title",
+});
+
+// const props = defineProps<{
+//   itTitle: { type: String; default: "title" };
+// }>();
 </script>
 
 <template>
