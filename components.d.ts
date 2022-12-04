@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Button: typeof import('./src/components/Button/Button.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElIcon: typeof import('element-plus/es')['ElIcon']
@@ -23,6 +24,7 @@ declare module '@vue/runtime-core' {
     NavigationBar: typeof import('./src/components/TopBar/NavigationBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Title: typeof import('./src/components/Title/Title.vue')['default']
     TopBar: typeof import('./src/components/TopBar/TopBar.vue')['default']
   }
 }
