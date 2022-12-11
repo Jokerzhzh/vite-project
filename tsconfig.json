@@ -1,24 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "types": ["element-plus/global"],
+    "target": "ESNext", // 将代码编译为最新版本的 JS 语法
+    "useDefineForClassFields": true, // 使用 Object.defineProperty 定义 class 中的属性，而非使用 obj.key = value 的形式定义属性 (Node.js v14.15.0+)
+    "module": "ESNext", // 使用 ES Module 格式打包编译后的文件 (Node.js v14.15.0+)
+    "moduleResolution": "Node", // 使用 Node 的模块解析策略 (Node.js v14.15.0+)
+    "strict": true, // 启用所用严格的类型检查 (包括 strictNullChecks, strictBindCallApply, strictFunctionTypes, strictPropertyInitialization, strictSafeNavigationOperators)
+    "sourceMap": true, // 生成 sourceMap 文件 (方便调试)
+    "resolveJsonModule": true, // 允许引入 JSON 文件 (import json from './file.json')
+    "isolatedModules": true, // 该属性要求所有文件都是 ES Module 模块。这个属性的目的是为了更好的支持工具，比如 IDE 的语法检查
+    "esModuleInterop": true, // 允许使用 import 引入使用 export = 导出的内容  (import * as express from 'express')
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"], // 指定编译时需要引入的库文件(引入 ES 最新特性和 DOM 接口的类型定义)
+    "skipLibCheck": true, // 跳过对 node_modules 中的库文件(.d.ts 文件)的类型检查 (加快编译速度)
+    "types": ["element-plus/global"], // 指定需要引入的类型定义文件
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // 指定路径别名
     }
   },
-  "vueCompilerOptions":{
-    "experimentalDisableTemplateSupport": true
+  "vueCompilerOptions": {
+    "experimentalDisableTemplateSupport": true // 关闭对 template 的类型检查
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./auto-imports.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "./auto-imports.d.ts"
+  ], // 指定需要编译的文件
+  "references": [{ "path": "./tsconfig.node.json" }] // 指定项目的依赖关系
 }
