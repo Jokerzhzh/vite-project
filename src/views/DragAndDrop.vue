@@ -1,144 +1,77 @@
 <script setup lang="ts" name="DragAndDrop">
-import { computed, onMounted, ref } from "vue";
-const divList = ref([
-  {
-    id: 1,
-    name: "1",
-    type: "drag",
-  },
-  {
-    id: 2,
-    name: "2",
-    type: "drag",
-  },
-  {
-    id: 3,
-    name: "3",
-    type: "drag",
-  },
-  {
-    id: 4,
-    name: "4",
-    type: "drag",
-  },
-  {
-    id: 5,
-    name: "5",
-    type: "drag",
-  },
-  {
-    id: 6,
-    name: "6",
-    type: "drag",
-  },
-  {
-    id: 7,
-    name: "7",
-    type: "drag",
-  },
-  {
-    id: 8,
-    name: "8",
-    type: "drag",
-  },
-  {
-    id: 9,
-    name: "9",
-    type: "drop",
-  },
-  {
-    id: 10,
-    name: "10",
-    type: "drag",
-  },
-]);
-const list = ref([
-  {
-    id: 1,
-    type: "drop",
-  },
-  {
-    id: 2,
-    type: "drop",
-  },
-]);
-const DragList = computed(() =>
+interface divItem {
+  [key: string]: string;
+}
+const divList = ref<divItem[]>([]);
+
+for (let i = 1; i <= 20; i++) {
+  divList.value.push({
+    id: i + "",
+    name: i + "",
+    type: i % 2 ? "drag" : "drop",
+  });
+}
+
+const DragList = computed<divItem[]>(() =>
   divList.value.filter((item) => item.type === "drag")
 );
-const DropList = computed(() =>
+
+const DropList = computed<divItem[]>(() =>
   divList.value.filter((item) => item.type === "drop")
 );
 
-onMounted(() => {
-  let dragged: any;
+// 首次加载时 数据不变 不会调用 onUpdated ，所以需要在 onMounted 中调用一次 获取 dom方法 添加拖拽监听事件
+// 数据更新后 dom改变 不会调用 onMounted ，所以需要在 onUpdated 中调用一次 获取 dom方法 添加拖拽监听事件
 
-  let info: any;
-  let divId: any;
-
-  divList.value.forEach((item: any) => {
-    const dragDiv = document.getElementById("div" + item.id);
-
-    dragDiv!.addEventListener("drag", (event) => {
-      console.log("🚀 ~ event", event);
-      console.log("dragging");
+function getDoms() {
+  const dragDivs = document.querySelectorAll(".DragDiv");
+  // console.log("🚀 ~ dragDivs", dragDivs);
+  dragDivs.forEach((item) => {
+    item.addEventListener("dragstart", (event: any) => {
+      // event.target.classList.add("dragging");
+      event.dataTransfer.setData("itemId", event.target.id);
     });
-    dragDiv!.addEventListener("dragstart", (event: any) => {
-      dragged = event.target;
-      divId = dragged.__vnode.props.key;
-      info = item;
-      event.target.classList.add("dragging");
-    });
-
-    dragDiv!.addEventListener("dragend", (event: any) => {
-      event.target.classList.remove("dragging");
-      console.log("🚀 ~ dragend");
-    });
-  });
-
-  [
-    { id: 1, type: "drag" },
-    { id: 2, type: "drop" },
-  ].forEach((ele: any) => {
-    const dropDiv = document.getElementById("dropDiv" + ele.id);
-
-    dropDiv!.addEventListener(
-      "dragover",
-      (event) => {
-        event.preventDefault();
-      },
-      false
-    );
-
-    dropDiv!.addEventListener("dragenter", (event: any) => {
-      if (event.target.classList.contains("dropzone")) {
-        event.target.classList.add("dragover");
-      }
-      console.log("dragenter");
-    });
-
-    dropDiv!.addEventListener("dragleave", (event: any) => {
-      if (event.target.classList.contains("dropzone")) {
-        event.target.classList.remove("dragover");
-      }
-      console.log("dragleave");
-    });
-
-    dropDiv!.addEventListener("drop", (event: any) => {
+    item.addEventListener("dragend", (event: any) => {
+      // event.target.classList.remove("dragging");
       event.preventDefault();
-      if (event.target.classList.contains("dropzone")) {
-        event.target.classList.remove("dragover");
-        dragged.parentNode.removeChild(dragged);
-        event.target.appendChild(dragged);
-      }
-      console.log("drop");
-
-      divList.value.forEach((item) => {
-        if (item.id === divId)
-          console.log("item~~~", item, "###", divId), (item.type = ele.type);
-      });
-      console.log("🚀 ~ divList.value", divList.value);
     });
   });
+}
+
+onMounted(() => {
+  getDoms();
+  const dropDivs = document.querySelectorAll(".DropDiv");
+  // console.log("🚀 ~ dropDivs", dropDivs);
+  dropDivs.forEach((item) => {
+    item.addEventListener("dragover", (event: any) => {
+      event.preventDefault();
+    });
+    item.addEventListener("dragenter", (event: any) => {
+      event.target.classList.add("dragover");
+    });
+    item.addEventListener("dragleave", (event: any) => {
+      event.target.classList.remove("dragover");
+    });
+    item.addEventListener("drop", (event: any) => {
+      // console.log("🚀 ~ event", event.dataTransfer.getData("itemId"));
+      // console.log("🚀 ~ event", event.target.id);
+      if (event.target.id === "DragList") {
+        divList.value.forEach((item) => {
+          if (item.id === event.dataTransfer.getData("itemId"))
+            item.type = "drag";
+        });
+      } else {
+        divList.value.forEach((item) => {
+          if (item.id === event.dataTransfer.getData("itemId"))
+            item.type = "drop";
+        });
+      }
+    });
+  });
+});
+
+onUpdated(() => {
+  getDoms();
 });
 </script>
 
@@ -147,10 +80,10 @@ onMounted(() => {
   <div>
     <div class="DragList flex">
       <span>DragList</span>
-      <div class="DropDiv" id="dropDiv1">+</div>
+      <div class="DropDiv" id="DragList">+</div>
       <div
         class="DragDiv cursor-move"
-        :id="'div' + item.id"
+        :id="item.id"
         v-for="item in DragList"
         :key="item.id"
         draggable="true"
@@ -160,10 +93,10 @@ onMounted(() => {
     </div>
     <div class="DropList flex">
       <span>DropList</span>
-      <div class="DropDiv" id="dropDiv2">+</div>
+      <div class="DropDiv" id="DropList">+</div>
       <div
         class="DragDiv cursor-move"
-        :id="'div' + item.id"
+        :id="item.id"
         v-for="item in DropList"
         :key="item.id"
         draggable="true"
