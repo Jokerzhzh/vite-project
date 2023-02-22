@@ -2,8 +2,8 @@ import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./assets/base.css";
+import store from "./store/pinia";
 import router from "./router";
-import store from "./store";
 
 const app = createApp(App);
 
