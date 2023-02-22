@@ -28,5 +28,5 @@ export function getbaseUrl() {
  *  getTest 测试
  */
 export async function getTest() {
-  return instance.get("/getTest");
+  return instance.get("/getTest").then((it) => it.data);
 }

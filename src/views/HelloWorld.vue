@@ -8,10 +8,9 @@ import { api } from "@/api";
 
 console.log(api.getbaseUrl());
 
-function test() {
-  api.getTest().then((res) => {
-    console.log("🚀 ~ res", res);
-  });
+async function test() {
+  let res = await api.getTest();
+  console.log("🚀 ~ res:", res);
 }
 
 setTimeout(test, 1000);
