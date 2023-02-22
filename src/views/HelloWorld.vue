@@ -4,6 +4,17 @@ import { UseWindowSize } from "@vueuse/components";
 import { useMouse, useWindowSize } from "@vueuse/core";
 import dayjs from "dayjs";
 import moment from "moment";
+import { api } from "@/api";
+
+console.log(api.getbaseUrl());
+
+function test() {
+  api.getTest().then((res) => {
+    console.log("🚀 ~ res", res);
+  });
+}
+
+setTimeout(test, 1000);
 
 // "x" and "y" are refs
 const { x, y } = useMouse();
