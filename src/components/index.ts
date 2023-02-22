@@ -7,3 +7,4 @@ export {
 export { default as Title } from "./Title/Title.vue";
 export { default as NavigationBar } from "./TopBar/NavigationBar.vue";
 export { default as TopBar } from "./TopBar/TopBar.vue";
+export { default as TestComponent } from "./Test/TestComponent.vue";
