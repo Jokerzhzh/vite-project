@@ -2,6 +2,9 @@
 import {} from "vue";
 import { RandomNum } from "@/store";
 import moment from "moment";
+import uuid from "licia-es/uuid";
+
+console.log("🚀 ~ uuid:", uuid());
 
 const store = RandomNum();
 
