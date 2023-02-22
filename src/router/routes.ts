@@ -62,6 +62,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import("@/views/Wangeditor.vue"),
       },
       {
+        path: "/ToRotate",
+        name: "ToRotate",
+        component: () => import("@/views/ToRotate.vue"),
+      },
+      {
         path: "/Testing",
         name: "Testing",
         component: () => import("@/views/Testing.vue"),
