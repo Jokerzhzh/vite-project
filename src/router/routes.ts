@@ -67,6 +67,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import("@/views/ToRotate.vue"),
       },
       {
+        path: "/FileAndFolder",
+        name: "FileAndFolder",
+        component: () => import("@/views/FileAndFolder.vue"),
+      },
+      {
         path: "/Testing",
         name: "Testing",
         component: () => import("@/views/Testing.vue"),
