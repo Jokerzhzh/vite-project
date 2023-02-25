@@ -1,4 +1,8 @@
 <script setup lang="ts" name="view1">
+import { ElButtonGroup, ElSwitch } from "element-plus";
+import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
 const router = useRouter();
 console.log("🚀 ~ router", router);
 

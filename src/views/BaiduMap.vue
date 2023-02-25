@@ -1,4 +1,5 @@
 <script setup lang="ts" name="BaiduMap">
+import { nextTick, ref } from "vue";
 import {
   BaiduMap,
   BmGeolocation,

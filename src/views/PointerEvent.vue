@@ -1,4 +1,6 @@
 <script setup lang="ts" name="PointerEvent">
+import { onMounted, ref } from "vue";
+
 const isSecondaryDragging$ = ref(false);
 const offsetSecondary$ = ref(0);
 

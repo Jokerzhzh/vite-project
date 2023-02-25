@@ -1,7 +1,7 @@
 <script setup lang="ts" name="Wangeditor">
-import "@wangeditor/editor/dist/css/style.css"; // 引入 css
-import { DomEditor } from "@wangeditor/editor";
 import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
+import "@wangeditor/editor/dist/css/style.css"; // 引入 css
+import { onBeforeUnmount, onMounted, ref, shallowRef } from "vue";
 
 const editorRef = shallowRef();
 

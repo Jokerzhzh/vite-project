@@ -1,5 +1,6 @@
 <script setup lang="ts" name="TestComponent">
-import {} from "vue";
+import { onUpdated, toRefs } from "vue";
+
 const props = defineProps({
   str: { type: String, default: "" },
   num: { type: Number, default: 1 },

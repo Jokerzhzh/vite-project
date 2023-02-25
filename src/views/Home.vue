@@ -1,4 +1,7 @@
-<script setup lang="ts" name="Home"></script>
+<script setup lang="ts" name="Home">
+import { LeftMenu, TopBar } from "@/components";
+import { ElScrollbar } from "element-plus";
+</script>
 
 <template>
   <main class="main-content">

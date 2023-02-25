@@ -1,5 +1,6 @@
 <script setup lang="ts" name="Vuedraggable">
 import Sortable from "sortablejs";
+import { onMounted, ref } from "vue";
 
 onMounted(() => {
   const table_1 = document.getElementById("table_1") as HTMLElement;

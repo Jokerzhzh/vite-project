@@ -1,8 +1,10 @@
 <script setup lang="ts" name="view2">
-import {} from "vue";
+import { Button, Title } from "@/components";
 import { RandomNum } from "@/store";
-import moment from "moment";
 import uuid from "licia-es/uuid";
+import moment from "moment";
+import { storeToRefs } from "pinia";
+import { ref } from "vue";
 
 console.log("🚀 ~ uuid:", uuid());
 

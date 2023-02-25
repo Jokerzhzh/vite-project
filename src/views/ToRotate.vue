@@ -1,5 +1,6 @@
 <script setup lang="ts" name="ToRotate">
-import {} from "vue";
+import { ElColorPicker } from "element-plus";
+import { ref } from "vue";
 
 const xz = ref(0);
 const yz = ref(0);

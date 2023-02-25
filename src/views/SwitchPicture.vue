@@ -1,5 +1,7 @@
 <script setup lang="ts" name="SwitchPicture">
 import type { TabsPaneContext } from "element-plus";
+import { ElTabPane, ElTabs } from "element-plus";
+import { ref } from "vue";
 
 const activeName = ref("width-change");
 

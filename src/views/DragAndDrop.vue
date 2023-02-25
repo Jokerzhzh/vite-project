@@ -1,4 +1,6 @@
 <script setup lang="ts" name="DragAndDrop">
+import { computed, onMounted, onUpdated, ref } from "vue";
+
 interface divItem {
   [key: string]: string;
 }
