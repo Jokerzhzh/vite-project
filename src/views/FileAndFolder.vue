@@ -12,7 +12,9 @@ interface files {
 
 function addFile(params: files | Array<File> | any) {
   for (const key in params) {
-    fileData.value.push(params[key]);
+    if (params.hasOwnProperty(key)) {
+      fileData.value.push(params[key]);
+    }
   }
 }
 
