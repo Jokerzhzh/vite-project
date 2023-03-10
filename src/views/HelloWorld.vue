@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { api } from "@/api";
 import { Input } from "@/components";
+import { testEnum } from "@/enums";
 import { useCounterStore } from "@/store/states";
 import { UseWindowSize } from "@vueuse/components";
 import { useMouse, useWindowSize } from "@vueuse/core";
@@ -9,6 +10,7 @@ import { ElButton, ElInput } from "element-plus";
 import moment from "moment";
 import { storeToRefs } from "pinia";
 import { isReactive, reactive, ref, toRaw, watch } from "vue";
+console.log("🚀 ~ test:", testEnum);
 
 console.log(api.getbaseUrl());
 
@@ -156,6 +158,8 @@ console.log();
   <!-- <div class="bg-black"> -->
   <Input />
   <!-- </div> -->
+
+  <Button />
 </template>
 
 <style scoped>
