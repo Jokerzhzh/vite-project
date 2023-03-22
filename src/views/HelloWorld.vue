@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { api } from "@/api";
-import { Input } from "@/components";
+import { Button, Input } from "@/components";
 import { testEnum } from "@/enums";
 import { useCounterStore } from "@/store/states";
 import { UseWindowSize } from "@vueuse/components";
