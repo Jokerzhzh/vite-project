@@ -30,6 +30,8 @@ watch(
 onUpdated(() => {
   console.log("Testing onUpdated");
 });
+
+const myHeader = "myHeader";
 </script>
 
 <template>
@@ -38,7 +40,22 @@ onUpdated(() => {
     {{ arr }}
 
     <NavigationBar />
-    <TestComponent :str="str" :num="num" :obj="obj" />
+    <TestComponent :str="str" :num="num" :obj="obj">
+      <p>123123123</p>
+      <!-- <template #default="obj">
+        {{ obj.hello }}
+      </template> -->
+      <template #header="myHeader">
+        {{ myHeader.message }}
+        <div class="123">header</div>
+      </template>
+      <template #body>
+        <p>5555</p>
+      </template>
+      <template #footer>
+        <div>footer</div>
+      </template>
+    </TestComponent>
   </div>
 </template>
 

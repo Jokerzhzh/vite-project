@@ -1,5 +1,6 @@
 <script setup lang="ts" name="TestComponent">
 import { onUpdated, toRefs } from "vue";
+import GrandpaComponent from "./GrandpaComponent.vue";
 
 const props = defineProps({
   str: { type: String, default: "" },
@@ -29,6 +30,13 @@ onUpdated(() => {
   <input v-model="obj.a" />
 
   <button @click="changeObj">changeObj</button>
+
+  <GrandpaComponent />
+
+  <slot name="header" message="hello"></slot>
+  <slot name="body">123</slot>
+  <slot hello="9999"> morenxianshi </slot>
+  <slot name="footer"></slot>
 </template>
 
 <style scoped lang="scss"></style>
