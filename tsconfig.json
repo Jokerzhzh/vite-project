@@ -21,9 +21,11 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "src/**/**/*.vue",
     "./auto-imports.d.ts"
   ], // 指定需要编译的文件
   "references": [{ "path": "./tsconfig.node.json" }] // 指定项目的依赖关系

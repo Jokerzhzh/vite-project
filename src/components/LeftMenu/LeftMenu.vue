@@ -4,7 +4,6 @@ import { menuState } from "@/store/states";
 import { Expand, Fold, Menu as IconMenu } from "@element-plus/icons-vue";
 import { ElIcon, ElMenu, ElMenuItem } from "element-plus";
 import { storeToRefs } from "pinia";
-import { computed } from "vue";
 
 const store = menuState();
 
@@ -13,10 +12,6 @@ const { isCollapse } = storeToRefs(store);
 function changeState(state: boolean) {
   store.changeState(state);
 }
-
-const list = computed(() => {
-  return routes[1].children;
-});
 </script>
 <template>
   <main class="main-menu">
@@ -38,7 +33,7 @@ const list = computed(() => {
       :collapse="isCollapse"
       :router="true"
     >
-      <el-menu-item v-for="item in list" :index="item.path">
+      <el-menu-item v-for="item in routes" :index="item.path">
         <el-icon :size="30" color="red"><icon-menu /></el-icon>
         <template #title>{{ item.name }}</template>
       </el-menu-item>

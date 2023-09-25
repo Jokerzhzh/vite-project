@@ -1,10 +1,28 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+// const baseURL = computed(() => {
+//   return window.location.href;
+// });
+
+// watch(
+//   () => baseURL,
+//   (baseURL, prevCount) => {
+//     /* ... */
+//   }
+// );
+
+// //防止页面后退
+// history.pushState(null, "", document.URL);
+// window.addEventListener("popstate", function () {
+//   history.pushState(null, "", document.URL);
+// });
+
+import Home from "./views/Home.vue";
 </script>
 
 <template>
   <div>
-    <RouterView />
+    <!-- <RouterView /> -->
+    <Home />
   </div>
 </template>
 
