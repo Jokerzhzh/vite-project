@@ -33,10 +33,12 @@ function changeState(state: boolean) {
       :collapse="isCollapse"
       :router="true"
     >
-      <el-menu-item v-for="item in routes" :index="item.path">
-        <el-icon :size="30" color="red"><icon-menu /></el-icon>
-        <template #title>{{ item.name }}</template>
-      </el-menu-item>
+      <el-scrollbar class="menu-scrollbar">
+        <el-menu-item v-for="item in routes" :index="item.path">
+          <el-icon :size="30" color="red"><icon-menu /></el-icon>
+          <template #title>{{ item.name }}</template>
+        </el-menu-item>
+      </el-scrollbar>
     </el-menu>
   </main>
 </template>
@@ -61,11 +63,12 @@ function changeState(state: boolean) {
 .el-menu--collapse {
   min-height: calc(100vh - 50px);
 }
-.el-menu-vertical-demo {
-  height: calc(100vh - 50px);
-  min-height: calc(100vh - 50px);
-  overflow-y: auto;
 
+.menu-scrollbar {
+  height: calc(100vh - 80px);
+}
+.el-menu-vertical-demo {
+  min-height: calc(100vh - 50px);
   &:not(.el-menu--collapse) {
     width: 200px;
   }
