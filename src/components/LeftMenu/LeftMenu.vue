@@ -61,8 +61,13 @@ function changeState(state: boolean) {
 .el-menu--collapse {
   min-height: calc(100vh - 50px);
 }
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
+.el-menu-vertical-demo {
+  height: calc(100vh - 50px);
   min-height: calc(100vh - 50px);
+  overflow-y: auto;
+
+  &:not(.el-menu--collapse) {
+    width: 200px;
+  }
 }
 </style>
