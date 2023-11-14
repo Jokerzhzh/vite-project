@@ -1,5 +1,5 @@
 <script lang="ts" setup name="LeftMenu">
-import routes from "@/router/routes";
+import rawRoutes from "@/router/routes";
 import { menuState } from "@/store/states";
 import { Expand, Fold, Menu as IconMenu } from "@element-plus/icons-vue";
 import { ElIcon, ElMenu, ElMenuItem } from "element-plus";
@@ -12,6 +12,8 @@ const { isCollapse } = storeToRefs(store);
 function changeState(state: boolean) {
   store.changeState(state);
 }
+
+const routes = rawRoutes.filter((item) => item.name != "index");
 </script>
 <template>
   <main class="main-menu">

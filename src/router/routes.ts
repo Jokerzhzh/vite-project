@@ -116,4 +116,10 @@ const routes: RouteRecordRaw[] = Object.entries(pageConfigs).map(
 
 console.log("🚀 ~ pages:", routes);
 
+routes.unshift({
+  path: "/",
+  name: "index",
+  redirect: "/HelloWorld",
+});
+
 export default routes;
